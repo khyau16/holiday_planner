@@ -267,7 +267,7 @@ router.get('/trips/:id', async (req, res) => {
 
     try {
         // Render the EJS template with dynamic data
-        const htmlContent = await ejs.renderFile('pdf-template.ejs', { invoice: invoice[0], date: date });
+        const htmlContent = await ejs.renderFile('./views/pdf-template.ejs', { invoice: invoice[0], date: date });
 
         // Launch Puppeteer to create a PDF
         const browser = await puppeteer.launch({headless: 'new'});

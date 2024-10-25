@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f9f9f9; */
+    background-color: antiquewhite;
+    color: #333;
+}
+
+.sort-btn{
+    font-size: 14px;
+    background-color:transparent;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.search-btn{
+    font-size: 14px;
+    background-color:transparent;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.sort-btn:hover{
+    background-color: #d5d5d5;
+}
+
+.search-btn:hover{
+    background-color: #d5d5d5;
+}
+
+#userid {
+    border-radius: 7px;
+    border-color:bisque;
+}
+
+#main-content {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.inline {
+    display: inline-block;
+}
+
+.inline button {
+    margin-left: 10px;
+}
+
+.refresh-btn{
+    border: none;
+    background-color: antiquewhite;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.trip-list {
+    list-style: none;
+    padding: 0;
+}
+
+.no-trips{
+    text-align: center;
+}
+
+.add-plan{
+    text-decoration: none;
+    font-size: 18px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: rgb(94, 87, 46);
+    color: white;
+    border-radius: 30px;
+    padding: 18px;
+}
+
+.add-plan:hover{
+    background-color: rgb(116, 108, 66);
+}

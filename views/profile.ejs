@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head') %>
+    <link rel="stylesheet" href="/styles/profile.css">
+    <link rel="stylesheet" href="/styles/tripitem.css">
+</head>
+
+<body>
+    <%- include('includes/side-bar') %>
+    <div class="main-content">
+        <h1 class="title">Profile</h1>
+        <div class="user-info">
+            <h2 style="padding-left: 10px;"><%= user[0].customer_name %></h2>
+
+            <table>
+                <tr>
+                    <td><i class="bi bi-telephone"></i> Phone</td>
+                    <td>:</td>
+                    <td><%= user[0].phone %></td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-envelope"></i> Email</td>
+                    <td>:</td>
+                    <td><%= user[0].email %></td>
+                </tr>
+                <tr>
+                    <td><i class="bi bi-clipboard-check"></i> Trip History</td>
+                    <td>:</td>
+                    <td><%= trips.length %></td>
+                </tr>
+            </table>
+        </div>
+
+        
+
+        <% if(trips.length === 0) { %>
+            <p class="no-trips">No trip in the list. Add a new plan now!</p>
+        <% } %>
+
+        <ul class="trip-list">
+            <% for(const trip of trips) {%>
+                <%- include('includes/trip-item', { trip: trip }) %>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>

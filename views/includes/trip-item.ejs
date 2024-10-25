@@ -1,0 +1,45 @@
+<li class="trip-item <%= trip.suitability ? 'lightgreen' : 'lightred' %>">
+    <div class="trip-status <%= trip.suitability ? 'green' : 'red' %>"></div> <!-- color box-->
+
+    <div class="trip-details">
+        <h3 style="padding-bottom: 10px; padding-left: 10px;"><%= trip.customer_name %></h3>
+        <table>
+            <tr>
+                <td>Destination</td>
+                <td>:</td>
+                <td><%= trip.country %></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>:</td>
+                <td><%= trip.formattedDatetime %></td>
+            </tr>
+            <tr>
+                <td>Preferred Langugage</td>
+                <td>:</td>
+                <td><%= trip.customer_language %></td>
+            </tr>
+            <tr>
+                <td>Suitability</td>
+                <td>:</td>
+                <td><b><% if(trip.suitability==1) { %>suitable<% }else { %>not recommended<% } %></b></td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+
+    <div class="trip-actions">
+        <form action="/trips/<%= trip.plan_id %>" method="get">
+            <button><i class="bi bi-file-earmark-pdf" style="font-size: 16px;"></i> Download Invoice</button>
+        </form>
+    </div>
+</li>
+
+
+<!-- <h3><%= trip.customer_name %></h3>
+        <p>Destination: <%= trip.country %></p>
+        <p>Date: <%= trip.formattedDatetime %></p>
+        <p>Preferred Language: <%= trip.customer_language %></p>
+        <p>Suitability: <b><% if(trip.suitability==1) { %>suitable<% }else { %>not recommended<% } %></b></p> -->

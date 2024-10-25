@@ -1,0 +1,29 @@
+body{
+    background-color: antiquewhite;
+}
+
+.title {
+    text-align: center;
+}
+
+.user-info td{
+    padding: 10px;
+}
+
+.user-info i{
+    padding-right: 10px;
+}
+
+.main-content {
+    padding: 20px;
+    max-width: 900px;
+    margin:0 auto;
+}
+
+.no-trips{
+    text-align: center;
+}
+
+.trip-list {   
+    padding: 0;
+}

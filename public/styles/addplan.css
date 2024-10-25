@@ -1,0 +1,72 @@
+body {
+    /* background-color: #f0f0f0; */
+    background-color: antiquewhite;
+    color: #333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.plan-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    /* Dark gray label text */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    color: #333;
+    border: 1px solid #ccc;
+    /* Light gray border */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 20px;
+    zoom: 1.15;
+}
+
+.plan-submit {
+    display: block;
+    margin: 0 auto;
+    background-color: #555;
+    /* Medium gray button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.plan-submit:hover {
+    background-color: #777;
+    /* Lighter gray on hover */
+}
+
+.error-message {
+    color: red;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Mood</title>
+  <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+  <!-- Welcome Page -->
+  <div class="welcome-container">
+    <h1>HolidayMood</h1>
+    <h3>Your Ultimate Travel Planning Tool</h3>
+    <p style="max-width: 700px;">Discover the ease of organizing your dream vacation with Holiday Planner, a comprehensive platform designed to simplify every step of your travel planning process. Whether you're heading on a solo adventure, a family getaway, or a group trip, Holiday Planner ensures you stay on top of your itinerary, reservations, and activities — all in one place.</p>
+    <p>Log in or Sign up now!</p>
+    <button class="btn" onclick="openModal('loginModal')">Login</button>
+    <button class="btn" onclick="openModal('signupModal')">Sign Up</button>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <% if(loginError) {%>
+        <p class="error-message">Log in fail. Please check your information.</p>
+      <% } %>
+      <form id="loginForm" action="/login" method="POST">
+        <label for="loginEmail">Email:</label>
+        <input type="email" id="loginEmail" name="email" required>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" required>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signupModal')">&times;</span>
+      <h2>Sign Up</h2>
+      <% if(signupError) {%>
+        <p class="error-message">Sign up fail. Please check your information.</p>
+      <% } %>
+      <form id="signupForm" action="/signup" method="POST" >
+        <label for="signupName">Name:</label>
+        <input type="text" id="signupName" name="name" required>
+        <label for="signupEmail">Email:</label>
+        <input type="email" id="signupEmail" name="email" required>
+        <label for="signupPhone">Phone Number:</label>
+        <input type="text" id="signupPhone" name="phone" required>
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" name="password" required>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>

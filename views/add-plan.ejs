@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/head') %>
+    <link rel="stylesheet" href="/styles/addplan.css">
+</head>
+<body>
+    <%- include('includes/side-bar') %>
+    <h1 style="padding-top: 20px;">Start Planning For Your Holiday!</h1>
+    <form class="plan-form" action="/addplan" method="POST">
+        <label for="country"><i class="bi bi-building"></i> Country</label>
+        <input type="text" id="country" name="country" required>
+        <label for="language"><i class="bi bi-translate"></i> Preferred Languages</label>
+        <input type="text" id="language" name="language" required>
+        <label for="datetime"><i class="bi bi-calendar"></i> Date Traveling</label>
+        <p class="error-message"><% if(errorMessage){ %>Please choose a valid date.<% } %></p>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <label for="numberOfTraveller"><i class="bi bi-people"></i> Number of Travellers</label>
+        <input type="number" min="1" id="numberOfTraveller" name="numberOfTraveller" required>  
+        
+        <p>Please tick the required services:</p>
+        <input type="checkbox" id="accommodation" name="accommodation" value="true">
+        <label for="accommodation">Accommodation</label>
+        <input type="checkbox" id="transport" name="transport" value="true">
+        <label for="transport">Transport</label>
+        <input type="checkbox" id="entertainment" name="entertainment" value="true">
+        <label for="entertainment">Entertainment</label>
+        <input type="checkbox" id="meal" name="meal" value="true">
+        <label for="meal">Meal</label>
+        <input type="checkbox" id="insurance" name="insurance" value="true">
+        <label for="insurance">Insurance</label>
+
+        <button class="plan-submit">Submit</button>
+    </form>
+</body>
+</html>

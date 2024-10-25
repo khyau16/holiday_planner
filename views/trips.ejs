@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('includes/head') %>
+  <link rel="stylesheet" href="/styles/trips.css">
+  <link rel="stylesheet" href="/styles/tripitem.css">
+</head>
+
+<body>
+  <%- include('includes/side-bar') %>
+
+    <div id="main-content">
+        <h1>Welcome to HolidayMood!</h1>
+      
+      <p class="inline">Sort : <% if(nextOrder === 'asc'){ %>Desc<% }else { %>Asc<% } %> </p>
+      <form action="/trips" method="GET" class="inline">
+        <input hidden value="<%= nextOrder %>" name="order">
+        <button class="sort-btn">Sort <% if(nextOrder === 'asc'){ %><i class="bi bi-sort-up"></i><% }else { %><i class="bi bi-sort-down-alt"></i><% } %></button>
+      </form>
+
+      <div id="search-bar">
+        <form action="/trips/search" method="POST" class="inline">
+          <label for="userid">Search : </label>
+          <input id="userid" name="id" placeholder="search UID" required>
+          <button class="search-btn">Search <i class="bi bi-search"></i></button>
+        </form>
+        <form action="/trips/refresh" method="POST" class="inline">
+          <button class="refresh-btn">&#x21BB</button>
+        </form>
+      </div>
+
+      <!--Repeat for trips-->
+      <ul class="trip-list">
+        <% for(const trip of trips) { %>
+          <%- include('includes/trip-item', { trip: trip }) %>
+        <% } %>
+      </ul>
+
+      <a href="/addplan" class="add-plan"><i class="bi bi-plus-square" style="padding-right: 10px;"></i> Add Plan</a>
+
+      <div class="no-trips">
+        <p>End of list. Please add a new plan!</p>
+      </div>
+    </div>
+</body>
+
+</html>

@@ -31,6 +31,8 @@ router.post('/login', controller.login);
 
 router.post('/logout', controller.logout);
 
+router.get('/trips/:id', controller.getInvoice);
+
 // router.get('/trips/:id', async (req, res) => {
 
 //     const query = `
@@ -69,69 +71,6 @@ router.post('/logout', controller.logout);
 
 // })
 
-router.get('/trips/:id', async (req, res) => {
 
-    const query = `
-    SELECT customers.name, customers.phone, customers.email, plans.id AS invoice_id, 
-    plans.accommodation, plans.transport, plans.entertainment, plans.meal, plans.insurance
-    FROM customers
-    INNER JOIN plans ON customers.id = plans.customer_id
-    WHERE plans.id = ?
-    `
-    const [invoice] = await db.query(query, [req.params.id]);
-
-    const date = moment(new Date()).format('DD/MM/YYYY');
-
-    let total = 0;
-    
-    if(invoice[0].accommodation){
-        total += 150;
-    }
-
-    if(invoice[0].transport){
-        total += 50;
-    }
-
-    if(invoice[0].entertainment){
-        total += 100;
-    }
-
-    if(invoice[0].meal){
-        total += 60;
-    }
-
-    if(invoice[0].insurance){
-        total += 30;
-    }
-
-    const subtotal = total += 25;
-
-    const tax = subtotal*8/100;
-
-    const totalDue = subtotal + tax;
-
-    res.render('../views/pdf-template.hbs',
-        {
-            invoice: invoice[0], 
-            date:date, 
-            subtotal: subtotal.toFixed(2), 
-            tax: tax.toFixed(2), 
-            totalDue: totalDue.toFixed(2)
-        } ,
-        (err, html) => {
-        if (err) {
-            return res.send('template rendering error');
-        }
-
-        pdf.create(html, {}).toStream((err, pdfStream) => {
-            if (err) {
-                return res.send('pdf generation error');
-            }
-
-            res.setHeader('Content-type', 'application/pdf');
-            pdfStream.pipe(res);
-        })
-    })
-})
 
 module.exports = router;  

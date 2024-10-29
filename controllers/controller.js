@@ -1,6 +1,7 @@
 const moment = require('moment');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
+const pdf = require('html-pdf');
 
 const checkSuitability = require('../check-suitability');
 const db = require('../data/database');
@@ -294,10 +295,11 @@ const getInvoice = async (req, res) => {
         } ,
         (err, html) => {
         if (err) {
+            console.log(err);
             return res.send('template rendering error');
         }
 
-        pdf.create(html, {}).toStream((err, pdfStream) => {
+        pdf.create(html,{}).toStream((err, pdfStream) => {
             if (err) {
                 return res.send('pdf generation error');
             }

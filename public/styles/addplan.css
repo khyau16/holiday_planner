@@ -26,7 +26,6 @@ label {
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
-    /* Dark gray label text */
 }
 
 input[type="text"],
@@ -38,7 +37,6 @@ input[type="datetime-local"] {
     background-color: #fafafa;
     color: #333;
     border: 1px solid #ccc;
-    /* Light gray border */
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -52,7 +50,6 @@ input[type="checkbox"] {
     display: block;
     margin: 0 auto;
     background-color: #555;
-    /* Medium gray button */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -64,7 +61,6 @@ input[type="checkbox"] {
 
 .plan-submit:hover {
     background-color: #777;
-    /* Lighter gray on hover */
 }
 
 .error-message {

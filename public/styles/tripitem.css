@@ -8,7 +8,6 @@
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    /* Ensure the color box not exceed the border*/
 }
 
 .trip-item div {
@@ -18,7 +17,6 @@
 .trip-status {
     width: 30px;
     height: 150px;
-    /* Make sure there is no margin or padding */
     margin: 0;
     padding: 0;
 }
@@ -63,7 +61,7 @@
 .trip-actions {
     text-align: center;
     padding-right: 15px;
-    /* Added padding for right alignment */
+    /* Add padding for right alignment */
 }
 
 .trip-actions button {

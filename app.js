@@ -1,5 +1,6 @@
 const path = require('path');
 
+const hbs = require('hbs');
 const express = require('express');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
@@ -18,6 +19,8 @@ const sessionStore = new MySQLStore({
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
+app.engine('hbs', hbs.__express)
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));

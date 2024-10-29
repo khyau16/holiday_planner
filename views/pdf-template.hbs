@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        p {
+            margin: 0;
+        }
+
+        th {
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+        }
+        *{
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding: 40px;">
+
+        <!--Header-->
+
+        <div style="position:relative; height: 100px;">
+            <div style="position: absolute; left: 0;">
+                <h3 style="margin-bottom: 0;">Travel Planner Agency</h3>
+                <p style="color: rgb(207, 205, 205); font-style: italic;">Building memories for you</p>
+            </div>
+            <h1 style="color: rgb(207, 205, 205); position: absolute; right: 0;">INVOICE</h1>
+        </div>
+
+        <!--Address-->
+        <p style="font-weight: bold;">456 Jalan Bunga Raya</p>
+        <p style="font-weight: bold;">Kuala Lumpur. WP 50000</p>
+        <div style="position:relative; height: 20px;">
+            <p style="position: absolute; left: 0;">Phone: <b>+60 3-1234 5678</b></p>
+            <p style="position: absolute; right: 0;">INVOICE #{{invoice.invoice_id}}</p>
+        </div>
+
+        <div style="position:relative; height: 20px;">
+            <p style="position: absolute; left: 0;">Fax: <b>+60 3-8765 4321</b></p>
+            <p style="position: absolute; right: 0;">DATE: {{date}}</p>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <p><b>TO:</b></p>
+        <p><b>{{invoice.name}}</b></p>
+        <p>Phone: <b>{{invoice.phone}}</b></p>
+        <p>Email: <b>{{invoice.email}}</b></p>
+
+        <br>
+        <br>
+        <br>
+
+        <table border="1" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="text-align: center; font-weight: bold;">
+                    <th style="width: 100px;">ITEM</th>
+                    <th>DESCRIPTION</th>
+                    <th style="width: 60px;">TOTAL(RM)</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                {{#if invoice.accommodation}}
+                <tr>
+                    <td>Accommodation</td>
+                    <td>Stay at a hotel with comfortable rooms and essential amenities for your
+                        vacation.</td>
+                    <td>150.00</td>
+                </tr>
+                {{/if}}
+                {{#if invoice.transport}}
+                <tr>
+                    <td>Transport</td>
+                    <td>Includes airport transfers and transportation within the destination city.</td>
+                    <td>50.00</td>
+                </tr>
+                {{/if}}
+                {{#if invoice.entertainment}}
+                <tr>
+                    <td>Entertainment</td>
+                    <td>Access to local attractions, guided tours, and cultural events during your
+                        stay.</td>
+                    <td>100.00</td>
+                </tr>
+                {{/if}}
+                {{#if invoice.meal}}
+                <tr>
+                    <td>Meal</td>
+                    <td>Full meal plan including breakfast, lunch, and dinner at selected restaurants
+                        or the hotel.</td>
+                    <td>60.00</td>
+                </tr>
+                {{/if}}
+                {{#if invoice.insurance}}
+                <tr>
+                    <td>Insurance</td>
+                    <td>Comprehensive travel insurance covering cancellations, medical
+                        emergencies, and lost luggage.</td>
+                    <td>30.00</td>
+                </tr>
+                {{/if}}
+                <tr>
+                    <td>Misc</td>
+                    <td>Additional expenses such as service fees, taxes, or tips during the trip.</td>
+                    <td>25.00</td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="2" style="text-align: right;">SUBTOTAL:</td>
+                    <td>{{subtotal}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">SALES TAX:</td>
+                    <td>{{tax}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: right;">TOTAL DUE:</td>
+                    <td>{{totalDue}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <br>
+
+        <p>Make all checks payable to Travel Planner Agency</p>
+        <p>If you have any questions concerning this invoice, feel free to contact <b>James</b> at:</p>
+        <ul>
+            <li>
+                <p><b>Phone</b>: +60 3-1234 5678</p>
+            </li>
+            <li>
+                <p><b>Email</b>: james@travelplanner.com</p>
+            </li>
+        </ul>
+
+        <br>
+        <br>
+
+        <p style="position: relative; padding-bottom: 20px; text-align: center; font-weight: bold;">THANK YOU FOR YOUR
+            BUSINESS!</p>
+    </div>
+</body>
+
+</html>
